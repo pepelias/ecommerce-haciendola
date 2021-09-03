@@ -1,0 +1,67 @@
+// Alto del header
+$header-height: calc(var(--fs-content) * 1.5 + #{$padding * 2});
+.main-header {
+  display: block;
+  width: 100vw;
+  position: sticky;
+  top: 0;
+  left: 0;
+  border-bottom: $border;
+  &__container {
+    max-width: $max-width;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $padding;
+  }
+  @media (min-width: $max-width) {
+    .mobile-menu {
+      display: none;
+    }
+    .main-menu {
+      position: static;
+      width: auto;
+      height: unset;
+      flex-direction: row;
+      max-width: unset;
+    }
+    .main-menu__item:last-of-type .main-menu__link {
+      margin-right: 0;
+    }
+  }
+}
+.mobile-menu {
+  display: flex;
+  gap: $padding;
+}
+.main-menu {
+  display: flex;
+  flex-direction: column;
+  gap: $margin;
+  position: fixed;
+  right: -80vw;
+  bottom: 0;
+  height: 100vh;
+  max-height: calc(100vh - #{$header-height});
+  overflow: auto;
+  width: 80vw;
+  max-width: 500px;
+  background: var(--general-bg-color);
+  transition: right 0.5s;
+  &__link {
+    display: flex;
+    align-items: center;
+    font-family: var(--ff-special);
+    line-height: 1em;
+    color: var(--content-color);
+    padding: $padding $margin;
+    text-decoration: none;
+  }
+  &.active {
+    right: 0;
+  }
+}
+.main-logo {
+  height: calc(var(--fs-content) * 1.5);
+}

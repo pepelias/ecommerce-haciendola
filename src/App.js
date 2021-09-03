@@ -1,13 +1,8 @@
+import Header from './Components/Organisms/Header'
 import './scss/main.scss'
-import logo from './logo.svg'
 
 function App() {
-  return (
-    <div>
-      <img src={logo} alt="Home&Carpet" />
-      <h1>Home&Carpet</h1>
-    </div>
-  )
+  return <Header />
 }
 
 export default App
