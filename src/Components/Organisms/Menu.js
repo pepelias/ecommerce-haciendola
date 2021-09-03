@@ -10,7 +10,7 @@ const Menu = () => {
     <nav className="main-navigator">
       <ul className="mobile-menu">
         <a href="/cart" className="button icon">
-          <Icon icon="shopping_cart" />
+          <Icon icon="shopping-cart" />
         </a>
         <button className="icon" onClick={handleToggle}>
           <Icon icon="menu" />
@@ -24,17 +24,17 @@ const Menu = () => {
         </li>
         <li className="main-menu__item">
           <a href="/" className="main-menu__link">
-            <Icon icon="collections">Colecciones</Icon>
+            <Icon icon="archive">Colecciones</Icon>
           </a>
         </li>
         <li className="main-menu__item">
           <a href="/" className="main-menu__link">
-            <Icon icon="shopping_cart">Carrito de compras</Icon>
+            <Icon icon="shopping-cart">Carrito de compras</Icon>
           </a>
         </li>
         <li className="main-menu__item">
           <a href="/" className="main-menu__link">
-            <Icon icon="account_circle">Iniciar Sesión</Icon>
+            <Icon icon="user-circle">Iniciar Sesión</Icon>
           </a>
         </li>
       </ul>

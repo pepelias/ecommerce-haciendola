@@ -1,5 +1,5 @@
 // Alto del header
-$header-height: calc(var(--fs-content) * 1.5 + #{$padding * 2});
+$header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
 .main-header {
   display: block;
   width: 100vw;
@@ -13,7 +13,7 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 2});
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: $padding;
+    padding: $padding * 1.5 $padding;
   }
   @media (min-width: $max-width) {
     .mobile-menu {
@@ -33,7 +33,7 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 2});
 }
 .mobile-menu {
   display: flex;
-  gap: $padding;
+  gap: $padding * 1.5;
 }
 .main-menu {
   display: flex;
@@ -52,10 +52,10 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 2});
   &__link {
     display: flex;
     align-items: center;
-    font-family: var(--ff-special);
+    font-family: var(--ff-content);
     line-height: 1em;
     color: var(--content-color);
-    padding: $padding $margin;
+    padding: ($padding * 1.2) $margin;
     text-decoration: none;
   }
   &.active {

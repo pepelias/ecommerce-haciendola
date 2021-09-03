@@ -1,6 +1,6 @@
 const Icon = ({ icon, children }) => (
   <>
-    <span className="material-icons">{icon}</span>
+    <i className={`im im-${icon}`}></i>
     {children && <span>{children}</span>}
   </>
 )
