@@ -1,15 +1,15 @@
+import useRegisters from '../../hooks/useRegisters'
 import Loader from '../Molecules/Loader'
 import Banner from '../Organisms/Banner'
 import Product from '../Organisms/Product'
 
-const products = []
-
-const Products = () => {
+const ProductsList = ({ bannerTitle, bannerImg, title, endpoint }) => {
+  const [products] = useRegisters(endpoint)
   return (
     <>
-      <Banner title="Tienda" img="/assets/products.jpg" />
+      <Banner title={bannerTitle} img={bannerImg} />
       <section className="container page-section">
-        <h1>Todos los productos</h1>
+        <h1>{title}</h1>
         {products.length > 0 ? (
           <div className="products-grid">
             {products.map((product, i) => (
@@ -24,4 +24,4 @@ const Products = () => {
   )
 }
 
-export default Products
+export default ProductsList

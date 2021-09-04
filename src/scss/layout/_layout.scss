@@ -81,6 +81,10 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
       color: var(--primary-color);
     }
   }
+  &__submenu {
+    width: 90%;
+    margin-left: auto;
+  }
   .active & {
     right: 0;
   }

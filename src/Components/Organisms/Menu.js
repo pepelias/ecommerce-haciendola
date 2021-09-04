@@ -1,7 +1,9 @@
 import { NavLink } from 'react-router-dom'
+import useRegisters from '../../hooks/useRegisters'
 import Icon from '../Molecules/Icon'
 
 const Menu = ({ handleToggle }) => {
+  const [collections] = useRegisters('/collections')
   const handleClick = (e) => {
     console.log(e.target)
     if (!e.target.matches('.main-menu__link')) return false
@@ -10,7 +12,7 @@ const Menu = ({ handleToggle }) => {
   return (
     <nav className="main-navigator">
       <ul className="mobile-menu">
-        <NavLink to="/cart" className="button icon">
+        <NavLink to="/carrito" className="button icon">
           <Icon icon="shopping-cart" />
         </NavLink>
         <button className="icon" onClick={handleToggle}>
@@ -24,7 +26,7 @@ const Menu = ({ handleToggle }) => {
           </NavLink>
         </li>
         <li className="main-menu__item">
-          <NavLink to="/products" className="main-menu__link">
+          <NavLink to="/productos" className="main-menu__link">
             <Icon icon="store">Productos</Icon>
           </NavLink>
         </li>
@@ -32,10 +34,22 @@ const Menu = ({ handleToggle }) => {
           <span className="main-menu__link">
             <Icon icon="archive">Collecciones</Icon>
           </span>
+          <ul className="main-menu__submenu">
+            {collections.map(({ handle }) => (
+              <li key={handle} className="main-menu__item">
+                <NavLink
+                  to={`/colecciones/${handle}`}
+                  className="main-menu__link"
+                >
+                  <Icon icon="layer">{handle}</Icon>
+                </NavLink>
+              </li>
+            ))}
+          </ul>
         </li>
         <li className="main-menu__item">
-          <NavLink to="/cart" className="main-menu__link" exact>
-            <Icon icon="shopping-cart">Carrito de compras</Icon>
+          <NavLink to="/carrito" className="main-menu__link" exact>
+            <Icon icon="shopping-cart">Ver mi carrito</Icon>
           </NavLink>
         </li>
         <li className="main-menu__item">

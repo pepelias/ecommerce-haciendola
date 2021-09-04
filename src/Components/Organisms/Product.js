@@ -5,11 +5,13 @@ const Product = ({
   title,
   handle,
   variantPrice,
-  variantInventoryQty,
+  variantInventoryQty: stock,
 }) => {
-  const slug = `/products/${handle}`
+  const slug = `/productos/${handle}`
   return (
-    <article className="product-card">
+    <article
+      className={`product-card ${parseInt(stock) === 0 ? 'no-stock' : ''}`}
+    >
       <div className="product-card__image">
         <NavLink to={slug}>
           <img src={imageSrc} alt={title} />
@@ -20,7 +22,11 @@ const Product = ({
           <h2 className="product-card__title">{title}</h2>
         </NavLink>
         <h3 className="product-card__price">${variantPrice}</h3>
-        <p className="product-card__detail">Stock: {variantInventoryQty}</p>
+        {stock > 0 ? (
+          <p className="product-card__detail">Stock: {stock}</p>
+        ) : (
+          <p className="product-card__detail no-stock">Agotado</p>
+        )}
         <NavLink to={slug} className="product-card__link">
           Ver producto
         </NavLink>
