@@ -2,6 +2,11 @@ import { NavLink } from 'react-router-dom'
 import Icon from '../Molecules/Icon'
 
 const Menu = ({ handleToggle }) => {
+  const handleClick = (e) => {
+    console.log(e.target)
+    if (!e.target.matches('.main-menu__link')) return false
+    handleToggle()
+  }
   return (
     <nav className="main-navigator">
       <ul className="mobile-menu">
@@ -12,7 +17,7 @@ const Menu = ({ handleToggle }) => {
           <Icon icon="menu" />
         </button>
       </ul>
-      <ul className="main-menu">
+      <ul className="main-menu" onClick={handleClick}>
         <li className="main-menu__item">
           <NavLink to="/" className="main-menu__link" exact>
             <Icon icon="home">Inicio</Icon>
