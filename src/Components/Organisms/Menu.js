@@ -1,12 +1,7 @@
-import { useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import Icon from '../Molecules/Icon'
 
-const Menu = () => {
-  const menu = useRef()
-  const handleToggle = () => {
-    menu.current.classList.toggle('active')
-  }
+const Menu = ({ handleToggle }) => {
   return (
     <nav className="main-navigator">
       <ul className="mobile-menu">
@@ -17,15 +12,20 @@ const Menu = () => {
           <Icon icon="menu" />
         </button>
       </ul>
-      <ul className="main-menu" ref={menu}>
+      <ul className="main-menu">
         <li className="main-menu__item">
           <NavLink to="/" className="main-menu__link" exact>
             <Icon icon="home">Inicio</Icon>
           </NavLink>
         </li>
         <li className="main-menu__item">
+          <NavLink to="/products" className="main-menu__link">
+            <Icon icon="store">Productos</Icon>
+          </NavLink>
+        </li>
+        <li className="main-menu__item">
           <span className="main-menu__link">
-            <Icon icon="home">Collecciones</Icon>
+            <Icon icon="archive">Collecciones</Icon>
           </span>
         </li>
         <li className="main-menu__item">

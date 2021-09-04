@@ -1,18 +1,23 @@
-$max-width: 1200px;
+$bp-m: 40em;
+$bp-lg: 64em;
+$bp-xl: 90em;
+$max-width: $bp-xl;
+
 $border: 1px solid var(--metadata-color);
 $padding: 10px;
 $margin: $padding * 2;
 
-$metadata-color: #ccc;
+$metadata-color: #7b7b7b;
 $primary-color: #af1717;
 $contrast-color: #fff;
 $content-color: #222;
 $general-bg-color: #fff;
+$content-bg-color: #f1f1f1;
 
-$zi-bg: -2;
-$zi-bg-overlay: -1;
-$zi-base: 0;
-$zi-full: 1000;
+$zi-bg: 0;
+$zi-content: 1;
+$zi-header: 100;
+$zi-modal: 1000;
 
 :root {
   --ff-special: Lora, serif;
@@ -24,8 +29,10 @@ $zi-full: 1000;
   --content-color: #{$content-color};
   --contrast-color: #{$contrast-color};
   --general-bg-color: #{$general-bg-color};
+  --content-bg-color: #{$content-bg-color};
 
-  --fs-content: 1rem; // 16px
+  --fs-metadata: 0.6875rem;
+  --fs-content: 0.875rem; // 16px
   --fs-title: 1.5625rem; // 25px
   --fs-main-title: 2.25rem; // 36px
 

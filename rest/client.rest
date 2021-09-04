@@ -1,0 +1,4 @@
+@api = https://staging.haciendola.dev/backend/test-front/api
+
+### Obtener productos
+GET {{api}}/products

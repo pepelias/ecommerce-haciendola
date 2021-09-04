@@ -2,11 +2,12 @@
 $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
 .main-header {
   display: block;
-  width: 100vw;
+  width: 100%;
   position: sticky;
+  z-index: $zi-header;
   top: 0;
-  left: 0;
   border-bottom: $border;
+  background: var(--general-bg-color);
   &__container {
     max-width: $max-width;
     margin: auto;
@@ -15,7 +16,10 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
     align-items: center;
     padding: $padding * 1.5 $padding;
   }
-  @media (min-width: $max-width) {
+  &.active + .main-container {
+    opacity: 0.2;
+  }
+  @media (min-width: $bp-lg) {
     .mobile-menu {
       display: none;
     }
@@ -29,7 +33,14 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
     .main-menu__item:last-of-type .main-menu__link {
       margin-right: 0;
     }
+    &.active + .main-container {
+      opacity: 1;
+    }
   }
+}
+.main-container {
+  position: relative;
+  transition: opacity 0.5s;
 }
 .mobile-menu {
   display: flex;
@@ -40,9 +51,8 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
   flex-direction: column;
   gap: $margin;
   position: fixed;
-  z-index: $zi-full;
   right: -80vw;
-  bottom: 0;
+  top: calc(#{$header-height} + 1px);
   height: 100vh;
   max-height: calc(100vh - #{$header-height});
   overflow: auto;
@@ -62,44 +72,10 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
       color: var(--primary-color);
     }
   }
-  &.active {
+  .active & {
     right: 0;
   }
 }
 .main-logo {
   height: calc(var(--fs-content) * 1.5);
-}
-.main-banner {
-  position: relative;
-  min-height: 200px;
-  display: flex;
-  z-index: $zi-bg;
-  &__img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: var(--zi-bg);
-    &::after,
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 1), transparent);
-    }
-  }
-  &__container {
-    position: relative;
-    max-width: $max-width;
-    margin: auto;
-    padding: $margin $padding ($margin * 4) $padding;
-    text-align: center;
-    color: var(--contrast-color);
-  }
 }

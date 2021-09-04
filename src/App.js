@@ -7,9 +7,11 @@ function App() {
   return (
     <Router>
       <Header />
-      <Switch>
-        <Route path="/" component={Home} exact />
-      </Switch>
+      <main className="main-container">
+        <Switch>
+          <Route path="/" component={Home} exact />
+        </Switch>
+      </main>
     </Router>
   )
 }

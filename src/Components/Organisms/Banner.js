@@ -7,7 +7,7 @@ const Banner = () => {
         <img src={bannerImage} alt="Ciro alfombras Logo" />
       </div>
       <div className="main-banner__container">
-        <h1>Elegancia y confort</h1>
+        <h1 className="main-banner__title">Elegancia y confort</h1>
       </div>
     </section>
   )

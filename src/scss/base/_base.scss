@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  z-index: $zi-bg;
 }
 
 .im {
@@ -49,6 +50,9 @@ button,
 }
 
 h1 {
-  font-size: var(--fs-main-title);
+  font-size: var(--fs-title);
+  font-family: var(--ff-special);
   font-weight: normal;
+  padding: $padding;
+  margin-bottom: $margin;
 }
