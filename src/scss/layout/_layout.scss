@@ -69,6 +69,9 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
     padding: ($padding * 1.2) $margin;
     text-decoration: none;
     position: relative;
+    &:hover {
+      color: var(--primary-color);
+    }
     &:after {
       content: '';
       position: absolute;
@@ -87,6 +90,20 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
   }
   .active & {
     right: 0;
+  }
+  @media (min-width: $bp-lg) {
+    &__submenu {
+      position: absolute;
+      background: var(--general-bg-color);
+      width: fit-content;
+      box-shadow: 0 5px 10px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s;
+    }
+    &__item:hover &__submenu {
+      max-height: 100vh;
+    }
   }
 }
 .main-logo {

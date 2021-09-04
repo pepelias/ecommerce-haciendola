@@ -49,7 +49,6 @@
   display: grid;
   gap: $margin;
   grid-template-columns: repeat(var(--cols), 1fr);
-  align-items: start;
   @media (min-width: $bp-m) {
     --cols: 3;
   }
