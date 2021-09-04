@@ -1,7 +1,7 @@
 .main-banner {
   position: relative;
-  min-height: 200px;
   display: flex;
+  animation: fadeIn 1s;
   &__img {
     position: absolute;
     width: 100%;
@@ -25,13 +25,19 @@
     position: relative;
     max-width: $max-width;
     margin: auto;
-    padding: $margin $padding ($margin * 4) $padding;
+    padding: $padding;
     text-align: center;
     color: var(--contrast-color);
   }
   .main-banner__title {
     font-size: var(--fs-main-title);
     font-family: var(--ff-content);
+  }
+  &.principal {
+    min-height: 200px;
+    .main-banner__container {
+      padding: $margin $padding ($margin * 4) $padding;
+    }
   }
   @media (min-width: $bp-lg) {
     min-height: 40vh;
@@ -55,6 +61,7 @@
 .product-card {
   display: block;
   border: $border;
+  animation: fadeIn 1s;
   a {
     display: block;
     text-decoration: none;
@@ -96,5 +103,58 @@
   a.product-card__link {
     color: var(--primary-color);
     text-decoration: underline;
+  }
+}
+
+// Loader
+.loader {
+  $size: 1.5em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__animation,
+  &__animation::before,
+  &__animation::after {
+    border-radius: 50%;
+    width: $size;
+    height: $size;
+    animation: loader 1.5s infinite;
+  }
+  &__animation {
+    color: var(--loader-color);
+    font-size: var(--fs-metadata);
+    position: relative;
+    top: $size * -1;
+    animation-delay: -0.16s;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+    }
+    &:before {
+      left: $size * -2;
+      animation-delay: -0.32s;
+    }
+    &::after {
+      left: $size * 2;
+    }
+  }
+  &__content {
+    color: var(--metadata-color);
+    font-size: var(--fs-content);
+    margin-top: $size;
+  }
+  @keyframes loader {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 $size 0 $size * -0.9;
+    }
+    40% {
+      box-shadow: 0 $size 0 0;
+    }
   }
 }

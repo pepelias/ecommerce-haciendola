@@ -4,12 +4,12 @@ import Product from '../Organisms/Product'
 
 const products = []
 
-const Home = () => {
+const Products = () => {
   return (
     <>
-      <Banner title="Elegancia y Confort" principal />
+      <Banner title="Tienda" img="/assets/products.jpg" />
       <section className="container page-section">
-        <h1>Lo más vendido</h1>
+        <h1>Todos los productos</h1>
         {products.length > 0 ? (
           <div className="products-grid">
             {products.map((product, i) => (
@@ -24,4 +24,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Products

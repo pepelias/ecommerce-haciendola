@@ -1,13 +1,12 @@
-import bannerImage from '../../assets/banner.jpg'
-
-const Banner = () => {
+const DEFAULT_IMAGE = '/assets/banner.jpg'
+const Banner = ({ img = DEFAULT_IMAGE, title, principal }) => {
   return (
-    <section className="main-banner">
+    <section className={`main-banner ${principal ? 'principal' : ''}`}>
       <div className="main-banner__img">
-        <img src={bannerImage} alt="Ciro alfombras Logo" />
+        <img src={img} alt="Ciro alfombras Logo" />
       </div>
       <div className="main-banner__container">
-        <h1 className="main-banner__title">Elegancia y confort</h1>
+        <h1 className="main-banner__title">{title}</h1>
       </div>
     </section>
   )

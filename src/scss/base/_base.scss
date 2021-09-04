@@ -24,6 +24,7 @@
 img {
   display: block;
   max-width: 100%;
+  animation: fadeIn 0.5s;
 }
 
 ul {
@@ -53,6 +54,6 @@ h1 {
   font-size: var(--fs-title);
   font-family: var(--ff-special);
   font-weight: normal;
-  padding: $padding;
+  padding: $padding 0;
   margin-bottom: $margin;
 }
