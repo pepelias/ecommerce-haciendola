@@ -1,10 +1,10 @@
-import useRegisters from '../../hooks/useRegisters'
+import useRequest from '../../hooks/useRequest'
 import Loader from '../Molecules/Loader'
 import Banner from '../Organisms/Banner'
 import Product from '../Organisms/Product'
 
 const Home = () => {
-  const [products] = useRegisters('/products/getBestSellers')
+  const [products] = useRequest({ endpoint: '/products/getBestSellers' })
   return (
     <>
       <Banner title="Elegancia y Confort" principal />

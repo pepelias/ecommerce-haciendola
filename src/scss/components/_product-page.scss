@@ -1,0 +1,100 @@
+.pdetail {
+  max-width: $max-width;
+  margin: auto;
+  padding: $padding;
+  &-image {
+    grid-area: image;
+    margin-bottom: 1em;
+    &__container {
+      display: block;
+      padding: $padding;
+      border: $border;
+      margin: auto;
+      width: fit-content;
+      img {
+        max-height: 50vh;
+      }
+    }
+  }
+  &-header {
+    grid-area: header;
+  }
+  &-metadata {
+    display: flex;
+    align-items: center;
+    font-size: var(--fs-metadata);
+    color: var(--metadata-color);
+    gap: 1em;
+    &__type {
+      padding: 0.5em 1em;
+      background: var(--metadata-color);
+      font-weight: bold;
+      text-decoration: none;
+      color: var(--contrast-color);
+    }
+  }
+  &-info {
+    grid-area: content;
+    &__price {
+      color: var(--primary-color);
+      font-size: var(--fs-subtitle);
+      font-weight: bold;
+      margin: 0.2em 0;
+    }
+    &__content {
+      font-size: var(--fs-content);
+      color: var(--content-color);
+    }
+  }
+  &-buybox {
+    display: flex;
+    width: fit-content;
+    gap: $padding;
+    margin: $margin 0;
+    &__qty {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      width: fit-content;
+      input {
+        text-align: center;
+        font-weight: bold;
+        width: 5em;
+      }
+      button {
+        background: var(--content-color);
+      }
+    }
+  }
+  @media (min-width: $bp-m) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'image header'
+      'image content';
+    gap: $margin;
+    grid-row-gap: 0;
+    margin: auto;
+    margin-top: $margin;
+    width: $bp-lg;
+    max-width: 100vw;
+    &-image__container {
+      width: 100%;
+      max-height: unset;
+      background: var(--content-bg-color);
+      padding: $padding;
+      img {
+        width: 100%;
+        height: 100%;
+        max-height: 75vh;
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+    &-title {
+      margin: 0;
+    }
+    &-info {
+    }
+  }
+}

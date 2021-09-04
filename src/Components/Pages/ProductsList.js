@@ -1,10 +1,10 @@
-import useRegisters from '../../hooks/useRegisters'
+import useRequest from '../../hooks/useRequest'
 import Loader from '../Molecules/Loader'
 import Banner from '../Organisms/Banner'
 import Product from '../Organisms/Product'
 
 const ProductsList = ({ bannerTitle, bannerImg, title, endpoint }) => {
-  const [products] = useRegisters(endpoint)
+  const [products] = useRequest({ endpoint })
   return (
     <>
       <Banner title={bannerTitle} img={bannerImg} />

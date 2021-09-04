@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom'
-import useRegisters from '../../hooks/useRegisters'
+import useRequest from '../../hooks/useRequest'
 import Icon from '../Molecules/Icon'
 
 const Menu = ({ handleToggle }) => {
-  const [collections] = useRegisters('/collections')
+  const [collections] = useRequest({ endpoint: '/collections' })
   const handleClick = (e) => {
     console.log(e.target)
     if (!e.target.matches('.main-menu__link')) return false

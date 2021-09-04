@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './Components/Pages/Home'
 import ProductsList from './Components/Pages/ProductsList'
 import CollectionPage from './Components/Pages/CollectionPage'
+import ProductPage from './Components/Pages/ProductPage'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               endpoint={`/products`}
             />
           </Route>
+          <Route path="/productos/:product" component={ProductPage} />
           <Route path="/colecciones/:collection" component={CollectionPage} />
         </Switch>
       </main>

@@ -40,7 +40,10 @@
     }
   }
   @media (min-width: $bp-lg) {
-    min-height: 40vh;
+    min-height: 25vh;
+    &.principal {
+      min-height: 40vh;
+    }
   }
 }
 
@@ -125,6 +128,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: $margin;
   &__animation,
   &__animation::before,
   &__animation::after {
@@ -167,5 +171,17 @@
     40% {
       box-shadow: 0 $size 0 0;
     }
+  }
+}
+
+.message {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  &.error {
+    color: red;
+  }
+  &.success {
+    color: green;
   }
 }
