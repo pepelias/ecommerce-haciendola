@@ -9,6 +9,11 @@ $contrast-color: #fff;
 $content-color: #222;
 $general-bg-color: #fff;
 
+$zi-bg: -2;
+$zi-bg-overlay: -1;
+$zi-base: 0;
+$zi-full: 1000;
+
 :root {
   --ff-special: Lora, serif;
   --ff-content: 'Poppins', sans-serif;
@@ -18,8 +23,11 @@ $general-bg-color: #fff;
   --primary-color: #{$primary-color};
   --content-color: #{$content-color};
   --contrast-color: #{$contrast-color};
+  --general-bg-color: #{$general-bg-color};
 
-  --fs-content: 16px;
+  --fs-content: 1rem; // 16px
+  --fs-title: 1.5625rem; // 25px
+  --fs-main-title: 2.25rem; // 36px
 
   font-family: var(--ff-content);
   color: var(--content-color);

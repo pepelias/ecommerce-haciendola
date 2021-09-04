@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { NavLink } from 'react-router-dom'
 import Icon from '../Molecules/Icon'
 
 const Menu = () => {
@@ -9,33 +10,33 @@ const Menu = () => {
   return (
     <nav className="main-navigator">
       <ul className="mobile-menu">
-        <a href="/cart" className="button icon">
+        <NavLink to="/cart" className="button icon">
           <Icon icon="shopping-cart" />
-        </a>
+        </NavLink>
         <button className="icon" onClick={handleToggle}>
           <Icon icon="menu" />
         </button>
       </ul>
       <ul className="main-menu" ref={menu}>
         <li className="main-menu__item">
-          <a href="/" className="main-menu__link">
+          <NavLink to="/" className="main-menu__link" exact>
             <Icon icon="home">Inicio</Icon>
-          </a>
+          </NavLink>
         </li>
         <li className="main-menu__item">
-          <a href="/" className="main-menu__link">
-            <Icon icon="archive">Colecciones</Icon>
-          </a>
+          <span className="main-menu__link">
+            <Icon icon="home">Collecciones</Icon>
+          </span>
         </li>
         <li className="main-menu__item">
-          <a href="/" className="main-menu__link">
+          <NavLink to="/cart" className="main-menu__link" exact>
             <Icon icon="shopping-cart">Carrito de compras</Icon>
-          </a>
+          </NavLink>
         </li>
         <li className="main-menu__item">
-          <a href="/" className="main-menu__link">
-            <Icon icon="user-circle">Iniciar Sesión</Icon>
-          </a>
+          <NavLink to="/login" className="main-menu__link" exact>
+            <Icon icon="user-circle">Login</Icon>
+          </NavLink>
         </li>
       </ul>
     </nav>
