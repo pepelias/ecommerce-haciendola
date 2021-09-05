@@ -6,6 +6,7 @@ import ProductsList from './Components/Pages/ProductsList'
 import CollectionPage from './Components/Pages/CollectionPage'
 import ProductPage from './Components/Pages/ProductPage'
 import store from './redux/store'
+import CartPage from './Components/Pages/CartPage'
 import { Provider } from 'react-redux'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             </Route>
             <Route path="/productos/:product" component={ProductPage} />
             <Route path="/colecciones/:collection" component={CollectionPage} />
+            <Route path="/carrito" component={CartPage} />
           </Switch>
         </main>
       </Router>

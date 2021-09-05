@@ -44,6 +44,11 @@
     &__content {
       font-size: var(--fs-content);
       color: var(--content-color);
+      span {
+        display: inline-block;
+        margin-left: 0.5em;
+        color: var(--metadata-color);
+      }
     }
   }
   &-buybox {

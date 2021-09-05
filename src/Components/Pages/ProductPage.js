@@ -70,7 +70,12 @@ const ProductPage = ({ match }) => {
           <ErrorMessage>Producto agotado</ErrorMessage>
         ) : (
           <>
-            <p className="pdetail-info__content">Stock: {stock}</p>
+            <p className="pdetail-info__content">
+              Stock: {stock}.
+              {productInCart && (
+                <span>(Ya hay {productInCart.quantity} en tu carrito)</span>
+              )}
+            </p>
             <form className="pdetail-buybox" onSubmit={toCart}>
               <div className="pdetail-buybox__qty">
                 <button onClick={incrementQty}>
