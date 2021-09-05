@@ -3,7 +3,7 @@ import Loader from '../Molecules/Loader'
 import Banner from '../Organisms/Banner'
 import Product from '../Organisms/Product'
 
-const Home = () => {
+const HomePage = () => {
   const [products] = useRequest({ endpoint: '/products/getBestSellers' })
   return (
     <>
@@ -24,4 +24,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomePage

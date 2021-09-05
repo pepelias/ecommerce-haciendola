@@ -1,26 +1,51 @@
+import { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Currency } from '../../helpers/numberFormat'
+import useQuantity from '../../hooks/useQty'
 import useRegisters from '../../hooks/useRequest'
-import Error from '../Molecules/Error'
+import { addToCart } from '../../redux/actionCreators'
+import ErrorMessage from '../Molecules/ErrorMessage'
 import Icon from '../Molecules/Icon'
 import Loader from '../Molecules/Loader'
 
 const ProductPage = ({ match }) => {
-  const [product] = useRegisters({
+  // Data
+  const [product, error] = useRegisters({
     endpoint: `/products/${match.params.product}`,
     defaultValue: null,
   })
-  if (!product) return <Loader>Cargando información del producto</Loader>
-  const {
-    title,
-    Vendor,
-    type,
-    variantInventoryQty: stock,
-    variantPrice,
-    imageSrc,
-  } = product
+  const dispatch = useDispatch()
+  const productInCart = useSelector(({ cart }) =>
+    cart.find(({ product: p }) => p.handle === match.params.product)
+  )
 
-  const price = Currency.format(parseInt(variantPrice))
+  // Parsing
+  const { title, Vendor, type, variantInventoryQty, variantPrice, imageSrc } =
+    product || {}
+  const amount = parseInt(variantPrice)
+  const [stock, setStock] = useState()
+  const price = Currency.format(amount)
+
+  // Setear el stock
+  useEffect(() => {
+    const qty = parseInt(variantInventoryQty)
+    if (productInCart) return setStock(qty - productInCart.quantity)
+    setStock(qty)
+  }, [product, productInCart])
+
+  // Cantidad
+  const { quantity, incrementQty, decrementQty, setQty } = useQuantity(stock)
+
+  // Añadir al carrito
+  const toCart = (e) => {
+    e.preventDefault()
+    dispatch(addToCart({ product, amount, price, quantity }))
+  }
+
+  // Rendering
+  if (error) return <ErrorMessage>{error.message}</ErrorMessage>
+  if (!product) return <Loader>Cargando información del producto</Loader>
 
   return (
     <article className="pdetail">
@@ -42,17 +67,17 @@ const ProductPage = ({ match }) => {
         <h2 className="pdetail-info__price">{price}</h2>
 
         {parseInt(stock) === 0 ? (
-          <Error>Producto agotado</Error>
+          <ErrorMessage>Producto agotado</ErrorMessage>
         ) : (
           <>
             <p className="pdetail-info__content">Stock: {stock}</p>
-            <form className="pdetail-buybox">
+            <form className="pdetail-buybox" onSubmit={toCart}>
               <div className="pdetail-buybox__qty">
-                <button>
+                <button onClick={incrementQty}>
                   <Icon icon="plus" />
                 </button>
-                <input defaultValue="1" />
-                <button>
+                <input value={quantity} onChange={setQty} />
+                <button onClick={decrementQty}>
                   <Icon icon="minus" />
                 </button>
               </div>

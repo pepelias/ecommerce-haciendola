@@ -1,7 +1,7 @@
 import Header from './Components/Organisms/Header'
 import './scss/main.scss'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Home from './Components/Pages/Home'
+import HomePage from './Components/Pages/HomePage'
 import ProductsList from './Components/Pages/ProductsList'
 import CollectionPage from './Components/Pages/CollectionPage'
 import ProductPage from './Components/Pages/ProductPage'
@@ -15,7 +15,7 @@ function App() {
         <Header />
         <main className="main-container">
           <Switch>
-            <Route path="/" component={Home} exact />
+            <Route path="/" component={HomePage} exact />
             <Route path="/productos" exact>
               <ProductsList
                 bannerTitle="Tienda"

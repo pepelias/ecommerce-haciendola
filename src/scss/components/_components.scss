@@ -178,6 +178,7 @@
   display: block;
   text-align: center;
   font-weight: bold;
+  padding: $padding;
   &.error {
     color: red;
   }

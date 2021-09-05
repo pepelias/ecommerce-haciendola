@@ -8,9 +8,15 @@ const useRequest = ({ endpoint, defaultValue = [] }) => {
     if (!endpoint) return false
     console.log('Cargando:', process.env.REACT_APP_API + endpoint)
     fetch(process.env.REACT_APP_API + endpoint)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok)
+          throw Error(`[${res.statusText}]: No pudimos obtener la información`)
+        return res.json()
+      })
       .then((result) => setRegisters(result))
-      .catch((err) => setError(err))
+      .catch((err) => {
+        setError(err)
+      })
   }, [endpoint])
 
   return [registers, error]
