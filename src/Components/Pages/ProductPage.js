@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Currency } from '../../helpers/numberFormat'
 import useRegisters from '../../hooks/useRequest'
 import Error from '../Molecules/Error'
 import Icon from '../Molecules/Icon'
@@ -19,6 +20,8 @@ const ProductPage = ({ match }) => {
     imageSrc,
   } = product
 
+  const price = Currency.format(parseInt(variantPrice))
+
   return (
     <article className="pdetail">
       <header className="pdetail-header">
@@ -36,7 +39,7 @@ const ProductPage = ({ match }) => {
           </Link>
           <span className="pdetail-metadata__item">{Vendor}</span>
         </div>
-        <h2 className="pdetail-info__price">${variantPrice}</h2>
+        <h2 className="pdetail-info__price">{price}</h2>
 
         {parseInt(stock) === 0 ? (
           <Error>Producto agotado</Error>
