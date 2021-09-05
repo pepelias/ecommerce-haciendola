@@ -14,6 +14,7 @@ $content-color: #222;
 $general-bg-color: #fff;
 $content-bg-color: #f1f1f1;
 $loader-color: rgba($primary-color, 0.5);
+$footer-color: #615757;
 
 $zi-bg: 0;
 $zi-content: 1;
@@ -32,6 +33,7 @@ $zi-modal: 1000;
   --general-bg-color: #{$general-bg-color};
   --content-bg-color: #{$content-bg-color};
   --loader-color: #{$loader-color};
+  --footer-color: #{$footer-color};
 
   --fs-metadata: 0.6875rem;
   --fs-content: 0.875rem; // 16px

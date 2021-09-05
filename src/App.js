@@ -8,6 +8,7 @@ import ProductPage from './Components/Pages/ProductPage'
 import store from './redux/store'
 import CartPage from './Components/Pages/CartPage'
 import { Provider } from 'react-redux'
+import Footer from './Components/Organisms/Footer'
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/carrito" component={CartPage} />
           </Switch>
         </main>
+        <Footer />
       </Router>
     </Provider>
   )

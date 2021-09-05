@@ -1,5 +1,10 @@
 // Alto del header
 $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
+#root {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
 .main-header {
   display: block;
   width: 100%;
