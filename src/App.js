@@ -5,27 +5,31 @@ import Home from './Components/Pages/Home'
 import ProductsList from './Components/Pages/ProductsList'
 import CollectionPage from './Components/Pages/CollectionPage'
 import ProductPage from './Components/Pages/ProductPage'
+import store from './redux/store'
+import { Provider } from 'react-redux'
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <main className="main-container">
-        <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/productos" exact>
-            <ProductsList
-              bannerTitle="Tienda"
-              bannerImg="/assets/products.jpg"
-              title="Todos los productos"
-              endpoint={`/products`}
-            />
-          </Route>
-          <Route path="/productos/:product" component={ProductPage} />
-          <Route path="/colecciones/:collection" component={CollectionPage} />
-        </Switch>
-      </main>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Header />
+        <main className="main-container">
+          <Switch>
+            <Route path="/" component={Home} exact />
+            <Route path="/productos" exact>
+              <ProductsList
+                bannerTitle="Tienda"
+                bannerImg="/assets/products.jpg"
+                title="Todos los productos"
+                endpoint={`/products`}
+              />
+            </Route>
+            <Route path="/productos/:product" component={ProductPage} />
+            <Route path="/colecciones/:collection" component={CollectionPage} />
+          </Switch>
+        </main>
+      </Router>
+    </Provider>
   )
 }
 
