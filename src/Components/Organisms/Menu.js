@@ -5,7 +5,6 @@ import Icon from '../Molecules/Icon'
 const Menu = ({ handleToggle }) => {
   const [collections] = useRequest({ endpoint: '/collections' })
   const handleClick = (e) => {
-    console.log(e.target)
     if (!e.target.matches('.main-menu__link')) return false
     handleToggle()
   }

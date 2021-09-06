@@ -66,8 +66,11 @@ const ProductPage = ({ match }) => {
         </div>
         <h2 className="pdetail-info__price">{price}</h2>
 
-        {parseInt(stock) === 0 ? (
-          <ErrorMessage>Producto agotado</ErrorMessage>
+        {stock === 0 ? (
+          <ErrorMessage>
+            Producto agotado.{' '}
+            {productInCart && `(${productInCart.quantity} en tu carrito)`}
+          </ErrorMessage>
         ) : (
           <>
             <p className="pdetail-info__content">

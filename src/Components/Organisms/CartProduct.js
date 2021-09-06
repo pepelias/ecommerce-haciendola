@@ -1,7 +1,13 @@
+import { useDispatch } from 'react-redux'
 import { Currency } from '../../helpers/numberFormat'
+import { removeFromCart } from '../../redux/actionCreators'
 import Icon from '../Molecules/Icon'
 
 const CartProduct = ({ amount, price, quantity, product }) => {
+  const dispatch = useDispatch()
+  const handleRemove = () => {
+    dispatch(removeFromCart(product.handle))
+  }
   return (
     <div className="cart-product">
       <div className="cart-product__image">
@@ -16,7 +22,7 @@ const CartProduct = ({ amount, price, quantity, product }) => {
         </p>
       </div>
       <div className="cart-product__actions">
-        <button className="icon">
+        <button className="icon" onClick={handleRemove}>
           <Icon icon="trash-can" />
         </button>
       </div>

@@ -13,6 +13,8 @@ export const cart = (state = [], { type, data }) => {
   switch (type) {
     case actions.ADD_TO_CART:
       return addToCart()
+    case actions.REMOVE_FROM_CART:
+      return state.filter(({ product }) => product.handle !== data)
     default:
       return state
   }
