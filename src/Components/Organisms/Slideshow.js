@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Assets from '../../assets/import'
 import Icon from '../Molecules/Icon'
 
-const DEFAULT_SLIDES = [{ handle: 'Alfombras' }, { handle: 'Alfombras persa' }]
+const DEFAULT_SLIDES = []
 
 const Slide = ({ handle }) => {
   const img = Assets(`./slides/${handle}.png`)

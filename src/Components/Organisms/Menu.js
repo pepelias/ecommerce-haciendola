@@ -1,9 +1,19 @@
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import useRequest from '../../hooks/useRequest'
+import { setCollections } from '../../redux/actionCreators'
 import Icon from '../Molecules/Icon'
 
 const Menu = ({ handleToggle }) => {
   const [collections] = useRequest({ endpoint: '/collections' })
+  // Añadir collections al estado
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(setCollections(collections))
+  }, [collections])
+
+  // Cerrar el menu
   const handleClick = (e) => {
     if (!e.target.matches('.main-menu__link')) return false
     handleToggle()

@@ -7,3 +7,7 @@ export const addToCart = (product) => (dispatch) => {
 export const removeFromCart = (productHandle) => (dispatch) => {
   dispatch({ type: actions.REMOVE_FROM_CART, data: productHandle })
 }
+
+export const setCollections = (collections) => (dispatch) => {
+  dispatch({ type: actions.SET_COLLECTIONS, data: collections })
+}

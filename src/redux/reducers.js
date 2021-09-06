@@ -19,3 +19,12 @@ export const cart = (state = [], { type, data }) => {
       return state
   }
 }
+
+export const collections = (state = [], { type, data }) => {
+  switch (type) {
+    case actions.SET_COLLECTIONS:
+      return data
+    default:
+      return state
+  }
+}
