@@ -73,12 +73,12 @@ const ProductPage = ({ match }) => {
         ) : (
           <form className="pdetail-buybox" onSubmit={toCart}>
             <div className="pdetail-buybox__qty">
-              <button onClick={incrementQty}>
-                <Icon icon="plus" />
-              </button>
-              <input value={quantity} onChange={setQty} />
               <button onClick={decrementQty}>
                 <Icon icon="minus" />
+              </button>
+              <input value={quantity} onChange={setQty} />
+              <button onClick={incrementQty}>
+                <Icon icon="plus" />
               </button>
             </div>
             <button>

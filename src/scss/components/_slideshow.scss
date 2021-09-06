@@ -118,4 +118,7 @@
       }
     }
   }
+  &.animation * {
+    pointer-events: none;
+  }
 }
