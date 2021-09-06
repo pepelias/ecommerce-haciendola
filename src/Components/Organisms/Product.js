@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Currency } from '../../helpers/numberFormat'
+import Stock from '../Molecules/Stock'
 
 const Product = ({
   imageSrc,
@@ -11,9 +12,7 @@ const Product = ({
   const price = Currency.format(parseInt(variantPrice))
   const slug = `/productos/${handle}`
   return (
-    <article
-      className={`product-card ${parseInt(stock) === 0 ? 'no-stock' : ''}`}
-    >
+    <article className={`product-card`}>
       <div className="product-card__image">
         <Link to={slug}>
           <img src={imageSrc} alt={title} />
@@ -24,11 +23,9 @@ const Product = ({
           <h2 className="product-card__title">{title}</h2>
         </Link>
         <h3 className="product-card__price">{price}</h3>
-        {stock > 0 ? (
-          <p className="product-card__detail">Stock: {stock}</p>
-        ) : (
-          <p className="product-card__detail no-stock">Agotado</p>
-        )}
+        <p className="product-card__detail">
+          <Stock handle={handle} stock={parseInt(stock)} />
+        </p>
         <Link to={slug} className="product-card__link">
           Ver producto
         </Link>

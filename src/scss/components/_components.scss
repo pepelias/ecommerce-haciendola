@@ -126,22 +126,19 @@
     color: var(--metadata-color);
   }
 
-  &.no-stock {
-    opacity: 0.6;
-  }
-
-  &.no-stock &__detail {
-    width: fit-content;
-    padding: 0 0.5em;
-    background: var(--metadata-color);
-    color: var(--contrast-color);
-    font-weight: bold;
-  }
-
   a.product-card__link {
     color: var(--primary-color);
     text-decoration: underline;
   }
+}
+
+.out-of-stock {
+  display: inline-block;
+  padding: 0.1em 0.5em;
+  background: var(--metadata-color);
+  color: var(--contrast-color);
+  font-size: 0.8em;
+  font-weight: bold;
 }
 
 // Loader

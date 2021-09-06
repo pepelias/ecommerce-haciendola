@@ -12,3 +12,18 @@
     }
   }
 }
+.iconify {
+  display: inline-block;
+  font-size: 1em;
+  margin-left: 0.4em;
+  font-weight: bold;
+  .im {
+    --space: 0.3em;
+    font-size: 0.9em;
+    line-height: 0.5em;
+  }
+  span {
+    padding: 0;
+    margin: 0;
+  }
+}

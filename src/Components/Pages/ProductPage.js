@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Currency } from '../../helpers/numberFormat'
+import useInCart from '../../hooks/useInCart'
 import useQuantity from '../../hooks/useQty'
 import useRegisters from '../../hooks/useRequest'
 import { addToCart } from '../../redux/actionCreators'
 import ErrorMessage from '../Molecules/ErrorMessage'
 import Icon from '../Molecules/Icon'
 import Loader from '../Molecules/Loader'
+import Quantity from '../Molecules/Quantity'
 
 const ProductPage = ({ match }) => {
   // Data
@@ -16,9 +18,7 @@ const ProductPage = ({ match }) => {
     defaultValue: null,
   })
   const dispatch = useDispatch()
-  const productInCart = useSelector(({ cart }) =>
-    cart.find(({ product: p }) => p.handle === match.params.product)
-  )
+  const productInCart = useInCart(match.params.product)
 
   // Parsing
   const { title, Vendor, type, variantInventoryQty, variantPrice, imageSrc } =
@@ -65,35 +65,26 @@ const ProductPage = ({ match }) => {
           <span className="pdetail-metadata__item">{Vendor}</span>
         </div>
         <h2 className="pdetail-info__price">{price}</h2>
-
+        <p className="pdetail-info__content">
+          Stock: {stock}. <Quantity value={productInCart?.quantity} />
+        </p>
         {stock === 0 ? (
-          <ErrorMessage>
-            Producto agotado.{' '}
-            {productInCart && `(${productInCart.quantity} en tu carrito)`}
-          </ErrorMessage>
+          <ErrorMessage>Producto agotado.</ErrorMessage>
         ) : (
-          <>
-            <p className="pdetail-info__content">
-              Stock: {stock}.
-              {productInCart && (
-                <span>(Ya hay {productInCart.quantity} en tu carrito)</span>
-              )}
-            </p>
-            <form className="pdetail-buybox" onSubmit={toCart}>
-              <div className="pdetail-buybox__qty">
-                <button onClick={incrementQty}>
-                  <Icon icon="plus" />
-                </button>
-                <input value={quantity} onChange={setQty} />
-                <button onClick={decrementQty}>
-                  <Icon icon="minus" />
-                </button>
-              </div>
-              <button>
-                <Icon icon="shopping-cart">Añadir al carrito</Icon>
+          <form className="pdetail-buybox" onSubmit={toCart}>
+            <div className="pdetail-buybox__qty">
+              <button onClick={incrementQty}>
+                <Icon icon="plus" />
               </button>
-            </form>
-          </>
+              <input value={quantity} onChange={setQty} />
+              <button onClick={decrementQty}>
+                <Icon icon="minus" />
+              </button>
+            </div>
+            <button>
+              <Icon icon="shopping-cart">Añadir al carrito</Icon>
+            </button>
+          </form>
         )}
       </section>
     </article>

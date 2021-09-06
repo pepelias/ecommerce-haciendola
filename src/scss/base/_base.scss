@@ -8,16 +8,17 @@
 }
 
 .im {
+  --space: 0.5em;
   display: inline-block;
   vertical-align: middle;
   font-size: 1em;
   line-height: 1em;
   color: inherit;
   &:not(:last-child) {
-    margin-right: 0.5em;
+    margin-right: var(--space);
   }
   &:not(:first-child) {
-    margin-left: 0.5em;
+    margin-left: var(--space);
   }
 }
 
