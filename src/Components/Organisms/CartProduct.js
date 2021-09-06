@@ -39,7 +39,7 @@ const CartProduct = ({ amount, price, quantity, product }) => {
       </div>
       <div className="cart-product__remove-banner">
         <h2>¿Desea quitar este producto?</h2>
-        <div className="buttons-container to-end">
+        <div className="buttons-container ">
           <button onClick={dispatchRemove}>
             <Icon icon="check-mark">Confirmar</Icon>
           </button>
