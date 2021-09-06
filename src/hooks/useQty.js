@@ -12,6 +12,7 @@ const useQuantity = (max) => {
     setQuantity(quantity <= 1 ? 1 : quantity - 1)
   }
   const setQty = (e) => {
+    if (e.target.value === '') return setQuantity(1)
     let qty = parseInt(e.target.value)
     if (qty > max) qty = max
     if (qty < 1) qty = 1

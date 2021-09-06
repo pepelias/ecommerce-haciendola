@@ -4,7 +4,6 @@ import Quantity from './Quantity'
 const Stock = ({ handle, stock: defaultStock }) => {
   const product = useInCart(handle)
   const stock = product ? defaultStock - product.quantity : defaultStock
-  console.log('Stock', handle, product)
 
   if (stock <= 0)
     return (
