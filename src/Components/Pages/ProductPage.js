@@ -76,7 +76,12 @@ const ProductPage = ({ match }) => {
               <button onClick={decrementQty}>
                 <Icon icon="minus" />
               </button>
-              <input value={quantity} onChange={setQty} />
+              <input
+                value={quantity}
+                onChange={setQty}
+                onFocus={(e) => e.target.select()}
+                inputMode="numeric"
+              />
               <button onClick={incrementQty}>
                 <Icon icon="plus" />
               </button>

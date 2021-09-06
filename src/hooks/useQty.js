@@ -12,11 +12,12 @@ const useQuantity = (max) => {
     setQuantity(quantity <= 1 ? 1 : quantity - 1)
   }
   const setQty = (e) => {
-    if (e.target.value === '') return setQuantity(1)
-    let qty = parseInt(e.target.value)
+    const val = e.target.value
+    let qty = parseInt(val)
     if (qty > max) qty = max
-    if (qty < 1) qty = 1
+    if (qty < 1 || isNaN(qty)) qty = 1
     setQuantity(qty)
+    e.target.blur()
   }
   return { quantity, incrementQty, decrementQty, setQty }
 }
