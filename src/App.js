@@ -21,7 +21,7 @@ function App() {
             <Route path="/productos" exact>
               <ProductsList
                 bannerTitle="Tienda"
-                bannerImg="/assets/products.jpg"
+                bannerImg="./products.jpg"
                 title="Todos los productos"
                 endpoint={`/products`}
               />
