@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Assets from '../../assets/import'
 import Icon from '../Molecules/Icon'
 
-const DEFAULT_SLIDES = []
+const DEFAULT_SLIDES = [{ handle: 'Alfombras' }]
 
 const Slide = ({ handle }) => {
   const img = Assets(`./slides/${handle}.png`)
@@ -28,15 +28,18 @@ const Slideshow = ({ slides = DEFAULT_SLIDES }) => {
 
   const next = () => {
     if (timeout) clearTimeout(timeout)
-    if (!container.current || container.current.childNodes.length === 0)
+    if (!container.current || container.current.childNodes.length <= 1)
       return false
     container.current.classList.add('next')
   }
   const previous = () => {
     if (timeout) clearTimeout(timeout)
-    if (!container.current || container.current.childNodes.length === 0)
+    if (!container.current || container.current.childNodes.length <= 1)
       return false
-    container.current.prepend(container.current.lastChild)
+    container.current.insertAdjacentElement(
+      'afterbegin',
+      container.current.lastChild
+    )
     container.current.classList.add('previous')
   }
   const animationEnd = (e) => {
@@ -44,7 +47,10 @@ const Slideshow = ({ slides = DEFAULT_SLIDES }) => {
     mainContainer.current.classList.remove('animation')
     // Fue al siguiente
     if (container.current.classList.contains('next')) {
-      container.current.appendChild(container.current.firstElementChild)
+      container.current.insertAdjacentElement(
+        'beforeend',
+        container.current.firstElementChild
+      )
     }
     container.current.classList.remove('next', 'previous')
     timeout = setTimeout(() => next(), animation)
