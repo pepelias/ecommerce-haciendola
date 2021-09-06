@@ -27,3 +27,11 @@
     margin: 0;
   }
 }
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: $padding;
+  &.to-end {
+    justify-content: end;
+  }
+}

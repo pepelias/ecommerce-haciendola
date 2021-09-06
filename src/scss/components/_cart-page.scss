@@ -48,6 +48,11 @@
   padding: 0;
   height: fit-content;
   border: $border;
+  position: relative;
+  overflow: hidden;
+  a {
+    color: var(--content-color);
+  }
   &__image {
     display: block;
     width: 100%;
@@ -76,5 +81,30 @@
     font-size: var(--fs-subtitle);
     margin: 0;
     padding: 0;
+  }
+  &__remove-banner {
+    position: absolute;
+    display: grid;
+    top: 100%;
+    right: 0;
+    width: 75%;
+    height: 100%;
+    background: red;
+    color: var(--contrast-color);
+    padding: $padding;
+    gap: $padding;
+    transition: top 0.5s;
+    h2,
+    .subtitle {
+      font-size: var(--fs-buttons);
+      padding: 0;
+      text-align: center;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &.remove &__remove-banner {
+    top: 0;
   }
 }

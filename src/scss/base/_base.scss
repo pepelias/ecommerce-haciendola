@@ -48,6 +48,9 @@ button,
     color: inherit;
     padding: 0;
   }
+  &.secondary {
+    background: var(--content-color);
+  }
 }
 
 h1 {
