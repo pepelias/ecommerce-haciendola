@@ -60,3 +60,24 @@ h1 {
   padding: $padding 0;
   margin-bottom: $margin;
 }
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+input,
+select,
+textarea {
+  display: block;
+  padding: $padding;
+  font-size: var(--fs-content);
+  width: 100%;
+  outline: none;
+  border: 1px solid var(--metadata-color);
+  &:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border-color: var(--content-color);
+  }
+}

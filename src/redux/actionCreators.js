@@ -11,3 +11,10 @@ export const removeFromCart = (productHandle) => (dispatch) => {
 export const setCollections = (collections) => (dispatch) => {
   dispatch({ type: actions.SET_COLLECTIONS, data: collections })
 }
+
+export const signIn = (jwt) => (dispatch) => {
+  dispatch({ type: actions.LOGIN, data: jwt })
+}
+export const signOut = () => (dispatch) => {
+  dispatch({ type: actions.LOGOUT })
+}

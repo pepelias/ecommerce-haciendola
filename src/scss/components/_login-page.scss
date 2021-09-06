@@ -1,0 +1,14 @@
+.login-page {
+  display: block;
+  max-width: 500px;
+  margin: $margin auto;
+  padding: $padding;
+  h1 {
+    padding: 0;
+    text-align: center;
+  }
+  &__form {
+    border: $border;
+    padding: $padding;
+  }
+}

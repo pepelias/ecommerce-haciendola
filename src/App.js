@@ -9,6 +9,10 @@ import store from './redux/store'
 import CartPage from './Components/Pages/CartPage'
 import { Provider } from 'react-redux'
 import Footer from './Components/Organisms/Footer'
+import LoginPage from './Components/Pages/LoginPage'
+import PublicRoute from './Components/Molecules/PublicRoute'
+import PrivateRoute from './Components/Molecules/PrivateRoute'
+import HistoryPage from './Components/Pages/hostoryPage'
 
 function App() {
   return (
@@ -29,6 +33,8 @@ function App() {
             <Route path="/productos/:product" component={ProductPage} />
             <Route path="/colecciones/:collection" component={CollectionPage} />
             <Route path="/carrito" component={CartPage} />
+            <PublicRoute path="/login" component={LoginPage} />
+            <PrivateRoute path="/historial" component={HistoryPage} />
           </Switch>
         </main>
         <Footer />

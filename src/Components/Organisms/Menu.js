@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import useRequest from '../../hooks/useRequest'
 import { setCollections } from '../../redux/actionCreators'
 import Icon from '../Molecules/Icon'
+import AccountMenuItem from './AccountMenuItem'
 
 const Menu = ({ handleToggle }) => {
   const [collections] = useRequest({ endpoint: '/collections' })
@@ -61,11 +62,7 @@ const Menu = ({ handleToggle }) => {
             <Icon icon="shopping-cart">Ver mi carrito</Icon>
           </NavLink>
         </li>
-        <li className="main-menu__item">
-          <NavLink to="/login" className="main-menu__link" exact>
-            <Icon icon="user-circle">Login</Icon>
-          </NavLink>
-        </li>
+        <AccountMenuItem />
       </ul>
     </nav>
   )

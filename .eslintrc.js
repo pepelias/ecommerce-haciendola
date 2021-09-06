@@ -17,5 +17,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'dot-notation': 'off',
+    'no-throw-literal': 'warn',
   },
 }

@@ -18,5 +18,13 @@ const Store = new (class {
       return defaultValue
     }
   }
+
+  remove(key) {
+    try {
+      window.localStorage.remove(key)
+    } catch (err) {
+      console.error(err)
+    }
+  }
 })()
 export default Store

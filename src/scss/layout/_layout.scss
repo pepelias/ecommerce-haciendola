@@ -74,6 +74,9 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
     padding: ($padding * 1.2) $margin;
     text-decoration: none;
     position: relative;
+    &.pointer {
+      cursor: pointer;
+    }
     &:hover {
       color: var(--primary-color);
     }

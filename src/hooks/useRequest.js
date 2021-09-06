@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import requestApi from '../helpers/requestApi'
 
 const useRequest = ({ endpoint, defaultValue = [] }) => {
   const [registers, setRegisters] = useState(defaultValue)
@@ -6,16 +7,10 @@ const useRequest = ({ endpoint, defaultValue = [] }) => {
 
   useEffect(() => {
     if (!endpoint) return false
-    console.log('Cargando:', process.env.REACT_APP_API + endpoint)
-    fetch(process.env.REACT_APP_API + endpoint)
-      .then((res) => {
-        if (!res.ok)
-          throw Error(`[${res.statusText}]: No pudimos obtener la información`)
-        return res.json()
-      })
+    requestApi(endpoint)
       .then((result) => setRegisters(result))
       .catch((err) => {
-        setError(err)
+        setError(err.message)
       })
   }, [endpoint])
 

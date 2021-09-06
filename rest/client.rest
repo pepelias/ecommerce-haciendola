@@ -2,3 +2,18 @@
 
 ### Obtener productos
 GET {{api}}/products
+
+### Producto
+GET https://staging.haciendola.dev/backend/test-front/api/productOs/KNJS
+
+### Iniciar sesión
+POST {{api}}/users/login
+Content-Type: application/json
+
+{
+  "user": "pepe",
+  "password": "1234"
+}
+
+### Ordenes
+GET {{api}}/users/getOrders

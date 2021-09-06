@@ -44,7 +44,7 @@ const ProductPage = ({ match }) => {
   }
 
   // Rendering
-  if (error) return <ErrorMessage>{error.message}</ErrorMessage>
+  if (error) return <ErrorMessage>{error}</ErrorMessage>
   if (!product) return <Loader>Cargando información del producto</Loader>
 
   return (
