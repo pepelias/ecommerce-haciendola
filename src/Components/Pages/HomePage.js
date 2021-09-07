@@ -1,26 +1,15 @@
 import { useSelector } from 'react-redux'
-import useRequest from '../../hooks/useRequest'
-import Loader from '../Molecules/Loader'
-import Product from '../Organisms/Product'
+import BestSellers from '../Organisms/BestSellers'
 import Slideshow from '../Organisms/Slideshow'
 
 const HomePage = () => {
-  const [products] = useRequest({ endpoint: '/products/getBestSellers' })
   const collections = useSelector(({ collections }) => collections)
   return (
     <>
       <Slideshow slides={collections} />
       <section className="container page-section">
-        <h1>Lo más vendido</h1>
-        {products.length > 0 ? (
-          <div className="products-grid">
-            {products.map((product, i) => (
-              <Product key={i} {...product} />
-            ))}
-          </div>
-        ) : (
-          <Loader>Cargando productos</Loader>
-        )}
+        <h1>Lo más vendido:</h1>
+        <BestSellers />
       </section>
     </>
   )

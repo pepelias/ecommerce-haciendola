@@ -13,10 +13,9 @@ const requestApi = async (endpoint, config = {}) => {
   try {
     const req = await fetch(process.env.REACT_APP_API + endpoint, config)
     const type = req.headers.get('content-type')
-    const res = type
-      ? await req.json()
-      : Error('No podemos acceder a este recurso')
-    if (!req.ok) throw res
+    const res = type ? await req.json() : null
+    if (!req.ok || res === null)
+      throw res || Error('No podemos acceder a este recurso')
     return res
   } catch (err) {
     console.error(err)

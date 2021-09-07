@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Assets from '../../assets/import'
 import Icon from '../Molecules/Icon'
 
-const DEFAULT_SLIDES = [{ handle: 'Alfombras' }]
+const DEFAULT_SLIDES = []
 
 const Slide = ({ handle }) => {
   const img = Assets(`./slides/${handle}.png`)
@@ -21,6 +21,7 @@ const Slide = ({ handle }) => {
 }
 
 const Slideshow = ({ slides = DEFAULT_SLIDES }) => {
+  if (slides.length === 0) return null
   const container = useRef()
   const mainContainer = useRef()
   const animation = 4000
