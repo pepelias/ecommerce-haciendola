@@ -18,5 +18,6 @@ module.exports = {
     'react/prop-types': 'off',
     'dot-notation': 'off',
     'no-throw-literal': 'warn',
+    'no-useless-escape': 'warn',
   },
 }

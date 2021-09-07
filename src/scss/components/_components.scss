@@ -207,3 +207,21 @@
     color: green;
   }
 }
+
+.mini-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: red;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  color: var(--contrast-color);
+  font-size: var(--fs-metadata);
+  position: relative;
+  left: calc(100% - 0.5em);
+  top: 0.5em;
+  &:empty {
+    display: none;
+  }
+}

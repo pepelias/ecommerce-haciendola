@@ -1,6 +1,11 @@
 import Header from './Components/Organisms/Header'
 import './scss/main.scss'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom'
 import HomePage from './Components/Pages/HomePage'
 import ProductsList from './Components/Pages/ProductsList'
 import CollectionPage from './Components/Pages/CollectionPage'
@@ -35,6 +40,7 @@ function App() {
             <Route path="/carrito" component={CartPage} />
             <PublicRoute path="/login" component={LoginPage} />
             <PrivateRoute path="/historial" component={HistoryPage} />
+            <Redirect to="/" />
           </Switch>
         </main>
         <Footer />

@@ -3,7 +3,7 @@ import { Redirect, Route } from 'react-router'
 
 const PublicRoute = (params) => {
   const logged = useSelector(({ session }) => session)
-  if (logged) return <Redirect to="/" />
+  if (logged) return <Redirect to="/historial" />
   return <Route {...params} />
 }
 

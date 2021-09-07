@@ -1,4 +1,4 @@
-import { Currency } from '../../helpers/numberFormat'
+import { Currency } from '../../helpers/formats'
 import useCart from '../../hooks/useCart'
 import Message from '../Molecules/Message'
 

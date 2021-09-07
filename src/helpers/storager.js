@@ -21,7 +21,7 @@ const Store = new (class {
 
   remove(key) {
     try {
-      window.localStorage.remove(key)
+      window.localStorage.removeItem(key)
     } catch (err) {
       console.error(err)
     }

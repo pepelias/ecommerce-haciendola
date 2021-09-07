@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import useRequest from '../../hooks/useRequest'
 import { setCollections } from '../../redux/actionCreators'
@@ -8,6 +8,7 @@ import AccountMenuItem from './AccountMenuItem'
 
 const Menu = ({ handleToggle }) => {
   const [collections] = useRequest({ endpoint: '/collections' })
+  const counter = useSelector(({ cart }) => cart.length)
   // Añadir collections al estado
   const dispatch = useDispatch()
   useEffect(() => {
@@ -23,7 +24,8 @@ const Menu = ({ handleToggle }) => {
     <nav className="main-navigator">
       <ul className="mobile-menu">
         <NavLink to="/carrito" className="button icon">
-          <Icon icon="shopping-cart" />
+          <span className="mini-counter">{counter || ''}</span>
+          <Icon icon="shopping-cart"></Icon>
         </NavLink>
         <button className="icon" onClick={handleToggle}>
           <Icon icon="menu" />
@@ -59,7 +61,9 @@ const Menu = ({ handleToggle }) => {
         </li>
         <li className="main-menu__item">
           <NavLink to="/carrito" className="main-menu__link" exact>
-            <Icon icon="shopping-cart">Ver mi carrito</Icon>
+            <Icon icon="shopping-cart">
+              Carrito {counter ? `(${counter})` : ''}
+            </Icon>
           </NavLink>
         </li>
         <AccountMenuItem />

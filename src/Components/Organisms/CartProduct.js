@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Currency } from '../../helpers/numberFormat'
+import { Currency } from '../../helpers/formats'
 import { removeFromCart } from '../../redux/actionCreators'
 import Icon from '../Molecules/Icon'
 

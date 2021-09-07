@@ -44,7 +44,7 @@ export const session = (state = DEFAULT_SESSION, { type, data }) => {
     case actions.LOGIN:
       return Store.set(actions.SESSION_STORE, data)
     case actions.LOGOUT:
-      Store.remove(actions.SESSION_STORE, false)
+      Store.remove(actions.SESSION_STORE)
       return false
     default:
       return state

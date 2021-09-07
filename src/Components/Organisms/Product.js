@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Currency } from '../../helpers/numberFormat'
+import { Currency } from '../../helpers/formats'
 import Stock from '../Molecules/Stock'
 
 const Product = ({

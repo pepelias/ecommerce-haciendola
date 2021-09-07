@@ -12,6 +12,7 @@
     bottom: 0;
     left: 0;
     padding: $padding;
+    background: var(--general-bg-color);
     h1 {
       display: none;
     }
@@ -34,8 +35,14 @@
     grid-template-rows: none;
     grid-template-columns: 1fr 1fr;
     gap: $margin;
-    &__detail h1 {
-      display: block;
+    align-items: start;
+    &__detail {
+      position: sticky;
+      bottom: unset;
+      top: calc(#{$header-height} + #{$padding * 2});
+      h1 {
+        display: block;
+      }
     }
   }
 }

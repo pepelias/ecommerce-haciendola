@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Currency } from '../../helpers/numberFormat'
+import { Currency } from '../../helpers/formats'
 import useInCart from '../../hooks/useInCart'
 import useQuantity from '../../hooks/useQty'
 import useRegisters from '../../hooks/useRequest'
