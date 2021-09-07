@@ -7,8 +7,8 @@ const HomePage = () => {
   return (
     <>
       <Slideshow slides={collections} />
-      <section className="container page-section">
-        <h1>Lo más vendido:</h1>
+      <section className="container">
+        <h1 className="align-center">Lo más vendido:</h1>
         <BestSellers />
       </section>
     </>
