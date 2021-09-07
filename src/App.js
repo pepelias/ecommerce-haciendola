@@ -17,7 +17,7 @@ import Footer from './Components/Organisms/Footer'
 import LoginPage from './Components/Pages/LoginPage'
 import PublicRoute from './Components/Molecules/PublicRoute'
 import PrivateRoute from './Components/Molecules/PrivateRoute'
-import HistoryPage from './Components/Pages/hostoryPage'
+import HistoryPage from './Components/Pages/historyPage'
 
 function App() {
   return (
@@ -39,7 +39,8 @@ function App() {
             <Route path="/colecciones/:collection" component={CollectionPage} />
             <Route path="/carrito" component={CartPage} />
             <PublicRoute path="/login" component={LoginPage} />
-            <PrivateRoute path="/historial" component={HistoryPage} />
+            <PrivateRoute path="/historial" component={HistoryPage} exact />
+            <PrivateRoute path="/historial/:id" component={HistoryPage} />
             <Redirect to="/" />
           </Switch>
         </main>

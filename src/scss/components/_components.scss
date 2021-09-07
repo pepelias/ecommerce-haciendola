@@ -6,6 +6,8 @@
   padding: $margin;
   background: var(--footer-color);
   color: var(--contrast-color);
+  position: relative;
+  z-index: -1;
   a {
     color: inherit;
     font-size: var(--fs-metadata);
@@ -223,5 +225,41 @@
   top: 0.5em;
   &:empty {
     display: none;
+  }
+}
+
+.history-item {
+  display: block;
+  border: $border;
+  padding: $padding;
+  margin-bottom: $padding;
+  a {
+    text-decoration: none;
+    color: unset;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__title {
+    font-size: var(--fs-content);
+    font-weight: normal;
+  }
+  &__price {
+    font-size: var(--fs-subtitle);
+    display: inline-block;
+    margin: 0;
+    width: fit-content;
+    vertical-align: middle;
+    margin-right: 0.5em;
+  }
+  &__content {
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--metadata-color);
+  }
+  &.selected {
+    background: var(--content-bg-color);
+    border-color: var(--content-color);
+    box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.5);
   }
 }

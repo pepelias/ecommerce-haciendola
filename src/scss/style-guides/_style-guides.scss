@@ -23,9 +23,9 @@ $zi-header: 100;
 $zi-modal: 1000;
 
 :root {
-  --ff-special: Lora, serif;
+  --ff-special: 'Lora', serif;
   --ff-content: 'Poppins', sans-serif;
-  --ff-icons: 'Material-icons';
+  --ff-icons: 'iconmonstr-iconic-font';
 
   --metadata-color: #{$metadata-color};
   --primary-color: #{$primary-color};

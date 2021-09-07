@@ -53,12 +53,33 @@ button,
   }
 }
 
-h1 {
+h1,
+.title,
+.t1 {
   font-size: var(--fs-title);
   font-family: var(--ff-special);
-  font-weight: normal;
+  font-weight: bold;
   padding: $padding 0;
   margin-bottom: $margin;
+  &.alt {
+    font-family: var(--ff-content);
+  }
+}
+
+h2,
+.subtitle,
+.t2 {
+  font-size: var(--fs-subtitle);
+  font-family: var(--fs-content);
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+
+h3,
+.t3 {
+  font-size: var(--fs-content);
+  margin: 0;
+  font-weight: bold;
 }
 
 label {

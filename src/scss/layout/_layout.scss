@@ -65,6 +65,9 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
   max-width: 500px;
   background: var(--general-bg-color);
   transition: right 0.5s;
+  &__item {
+    position: relative;
+  }
   &__link {
     display: flex;
     align-items: center;
@@ -100,14 +103,18 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
     right: 0;
   }
   @media (min-width: $bp-lg) {
+    overflow: unset;
     &__submenu {
       position: absolute;
       background: var(--general-bg-color);
       width: fit-content;
+      max-width: unset;
       box-shadow: 0 5px 10px;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.5s;
+      top: 100%;
+      left: 0;
     }
     &__item:hover &__submenu {
       max-height: 100vh;
@@ -116,4 +123,53 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
 }
 .main-logo {
   height: calc(var(--fs-content) * 1.5);
+}
+.container {
+  display: block;
+  padding: $padding;
+  max-width: $max-width;
+  margin: auto;
+}
+.dual-container {
+  position: relative;
+  padding: $padding;
+  height: 100%;
+  width: 100%;
+  max-width: $max-width;
+  margin: auto;
+
+  &__section:last-of-type {
+    position: fixed;
+    z-index: $zi-modal;
+    overflow: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - #{$header-height});
+    padding: $padding;
+    background: var(--general-bg-color);
+    transition: left 0.5s;
+    &:empty {
+      left: 100vw;
+    }
+  }
+
+  @media (min-width: $bp-m) {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    gap: $margin;
+    &__section:last-of-type {
+      position: static;
+      &:empty::before {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        padding: 2em $padding;
+        content: 'Seleccione un elemento del historial para ver su detalle';
+        color: var(--metadata-color);
+        font-weight: bold;
+      }
+    }
+  }
 }
