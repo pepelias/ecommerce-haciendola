@@ -19,8 +19,10 @@ const BestSellers = () => {
   ]
 
   const ended = ({ index }) => {
+    if (!carousel.current) return false
     if (index !== carousel.current.getNextItemIndex()) return false
     setTimeout(() => {
+      if (!carousel.current) return false
       carousel.current.goTo(0)
     }, duration)
   }
