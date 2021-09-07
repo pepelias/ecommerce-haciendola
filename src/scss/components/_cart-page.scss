@@ -103,9 +103,13 @@
     transition: top 0.5s;
     h2,
     .subtitle {
-      font-size: var(--fs-buttons);
+      font-size: var(--fs-content);
       padding: 0;
       text-align: center;
+      margin: 0;
+    }
+    .buttons-container {
+      padding: 0;
     }
     &::-webkit-scrollbar {
       display: none;

@@ -40,10 +40,10 @@ const CartProduct = ({ amount, price, quantity, product }) => {
       <div className="cart-product__remove-banner">
         <h2>¿Desea quitar este producto?</h2>
         <div className="buttons-container ">
-          <button onClick={dispatchRemove}>
+          <button className="padding-y-05" onClick={dispatchRemove}>
             <Icon icon="check-mark">Confirmar</Icon>
           </button>
-          <button className="secondary" onClick={handleRemove}>
+          <button className="padding-y-05 secondary" onClick={handleRemove}>
             <Icon icon="x-mark">Cancelar</Icon>
           </button>
         </div>
