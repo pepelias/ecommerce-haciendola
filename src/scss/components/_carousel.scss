@@ -23,6 +23,9 @@
       background-color: transparent !important;
     }
   }
+  @media (max-width: 500px) {
+    display: none !important;
+  }
 }
 .rec.rec-dot_active {
   background: var(--primary-color) !important;

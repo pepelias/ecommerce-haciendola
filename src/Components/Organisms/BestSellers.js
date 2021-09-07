@@ -9,12 +9,12 @@ const BestSellers = () => {
   const [products, error] = useRequest({
     endpoint: '/products/getBestSellers',
   })
-  const duration = 3000
   const carousel = useRef()
+  const duration = 3000
   const breakPoints = [
     { width: 0, itemsToShow: 1, itemsToScroll: 1 },
     { width: 500, itemsToShow: 2, itemsToScroll: 1 },
-    { width: 768, itemsToShow: 3, itemsToScroll: 1 },
+    { width: 768, itemsToShow: 3, itemsToScroll: 2 },
     { width: 1200, itemsToShow: 4, itemsToScroll: 1 },
   ]
 
