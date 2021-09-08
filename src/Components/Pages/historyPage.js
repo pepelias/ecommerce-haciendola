@@ -20,8 +20,8 @@ const HistoryPage = ({ match }) => {
   if (!history.length && !error)
     return <Loader>Cargando su historial de pedidos</Loader>
   return (
-    <div className="dual-container">
-      <section className="dual-container__section">
+    <div className="grid-mobile-container">
+      <section className="grid-mobile-container__section">
         <h1>Historial de pedidos:</h1>
         {error ? (
           <ErrorMessage>{error}</ErrorMessage>
@@ -33,7 +33,7 @@ const HistoryPage = ({ match }) => {
           </ul>
         )}
       </section>
-      <section className="dual-container__section">
+      <section className="grid-mobile-container__section">
         {selected && <HistoryDetail {...selected} />}
       </section>
     </div>

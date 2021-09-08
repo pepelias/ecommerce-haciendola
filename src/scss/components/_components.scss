@@ -39,7 +39,7 @@
       padding: $margin $padding ($margin * 4) $padding;
     }
   }
-  @media (min-width: $bp-lg) {
+  @include from-bp(lg) {
     min-height: 25vh;
     &.principal {
       min-height: 40vh;
@@ -48,16 +48,9 @@
 }
 
 .products-grid {
-  --cols: 2;
   display: grid;
   gap: $margin;
-  grid-template-columns: repeat(var(--cols), 1fr);
-  @media (min-width: $bp-m) {
-    --cols: 3;
-  }
-  @media (min-width: $bp-lg) {
-    --cols: 4;
-  }
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 .product-card {
@@ -235,5 +228,22 @@
     background: var(--content-bg-color);
     border-color: var(--content-color);
     box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.image-container {
+  display: block;
+  padding: $padding;
+  border: $border;
+  img {
+    width: 100%;
+  }
+  @include responsive(&, undecored) {
+    padding: 0;
+    border: 0;
+  }
+  @include responsive('&', decored) {
+    padding: $padding;
+    border: $border;
   }
 }

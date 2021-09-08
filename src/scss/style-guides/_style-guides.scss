@@ -1,7 +1,13 @@
-$bp-m: 40em;
-$bp-lg: 64em;
-$bp-xl: 90em;
-$max-width: $bp-xl;
+$breakpoints: (
+  s: 0,
+  m: 40rem,
+  lg: 64rem,
+  xl: 90rem,
+);
+$max-width: map-get(
+  $map: $breakpoints,
+  $key: xl,
+);
 
 $border: 1px solid var(--metadata-color);
 $padding: 10px;
@@ -43,11 +49,8 @@ $zi-modal: 1000;
   --fs-content: 0.875rem; // 16px
   --fs-subtitle: 1.375em;
   --fs-title: 1.5625rem; // 25px
-  --fs-main-title: 2.25rem; // 36px
+  --fs-main-title: 2.25rem;
 
   font-family: var(--ff-content);
   color: var(--content-color);
-  @media (max-width: 400px) {
-    --fs-main-title: 1.5625rem;
-  }
 }

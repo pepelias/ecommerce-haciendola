@@ -77,7 +77,7 @@
           opacity: 0;
         }
       }
-      @media (min-width: $bp-m) {
+      @include from-bp(m) {
         position: absolute;
         top: 50%;
         left: 50%;

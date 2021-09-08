@@ -1,169 +1,153 @@
-.fade-in {
-  animation: fadeIn 1s;
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
+$breakpoints: (
+  s: 0,
+  m: 40rem,
+  lg: 64rem,
+  xl: 90rem,
+) !default;
+
+$aligns: left, center, right;
+$positions: (
+  end: end,
+  start: start,
+  center: center,
+);
+$verticals: (
+  top: start,
+  middle: center,
+  bottom: end,
+);
+@mixin box-rules($property, $value) {
+  $axies: (
+    y: (
+      t: top,
+      b: bottom,
+    ),
+    x: (
+      l: left,
+      r: right,
+    ),
+  );
+  @each $axis, $sides in $axies {
+    @each $abbr, $side in $sides {
+      @include responsive(
+        $property,
+        #{$property}-#{$axis},
+        #{$property}-#{$abbr},
+        #{$property}-#{$side}
+      ) {
+        #{$property}-#{$side}: $value;
+        @if (type-of($value) == number) {
+          &-0 {
+            #{$property}-#{$side}: 0;
+          }
+
+          &-05 {
+            #{$property}-#{$side}: $value / 2;
+          }
+
+          &-2 {
+            #{$property}-#{$side}: $value * 2;
+          }
+
+          &-3 {
+            #{$property}-#{$side}: $value * 3;
+          }
+
+          &-auto {
+            #{$property}-#{$side}: auto;
+          }
+        }
+      }
     }
   }
 }
-.iconify {
-  display: inline-block;
-  font-size: 1em;
-  margin-left: 0.4em;
-  font-weight: bold;
-  .im {
-    --space: 0.3em;
-    font-size: 0.9em;
-    line-height: 0.5em;
-  }
-  span {
-    padding: 0;
-    margin: 0;
-  }
-}
-.buttons-container {
-  display: flex;
-  justify-content: center;
-  gap: $padding;
-  &.to-end {
-    justify-content: end;
-  }
-}
-.metadata-color {
-  color: var(--metadata-color);
-}
-.price {
-  color: var(--primary-color);
-  font-weight: bold;
-  font-size: var(--fs-subtitle);
-}
-.list-item {
-  border: $border;
-  padding: $padding;
-  margin-bottom: $padding;
-}
 
-// Paddings
-.padding-l,
-.padding-x,
-.padding {
-  padding-left: $padding;
-  &-2 {
-    padding-left: $padding * 2;
-  }
-  &-05 {
-    padding-left: $padding / 2;
-  }
-  &-0 {
-    padding-left: 0;
-  }
-}
-.padding-r,
-.padding-x,
-.padding {
-  padding-right: $padding;
-  &-2 {
-    padding-right: $padding * 2;
-  }
-  &-05 {
-    padding-right: $padding / 2;
-  }
-  &-0 {
-    padding-right: 0;
-  }
-}
-.padding-t,
-.padding-y,
-.padding {
-  padding-top: $padding;
-  &-2 {
-    padding-top: $padding * 2;
-  }
-  &-05 {
-    padding-top: $padding / 2;
-  }
-  &-0 {
-    padding-top: 0;
-  }
-}
-.padding-b,
-.padding-y,
-.padding {
-  padding-bottom: $padding;
-  &-2 {
-    padding-bottom: $padding * 2;
-  }
-  &-05 {
-    padding-bottom: $padding / 2;
-  }
-  &-0 {
-    padding-bottom: 0;
+// Recorredor
+@mixin eacher($paring, $class) {
+  @each $prefix, $size in $breakpoints {
+    @if $paring {
+      &.#{$prefix}-#{$class} {
+        @include from-bp($prefix) {
+          @content;
+        }
+      }
+    } @else {
+      .#{$prefix}-#{$class} {
+        @include from-bp($prefix) {
+          @content;
+        }
+      }
+    }
   }
 }
 
-// Margin
-.margin-l,
-.margin-x,
-.margin {
-  margin-left: $margin;
-  &-2 {
-    margin-left: $margin * 2;
-  }
-  &-05 {
-    margin-left: $margin / 2;
-  }
-  &-0 {
-    margin-left: 0;
-  }
-}
-.margin-r,
-.margin-x,
-.margin {
-  margin-right: $margin;
-  &-2 {
-    margin-right: $margin * 2;
-  }
-  &-05 {
-    margin-right: $margin / 2;
-  }
-  &-0 {
-    margin-right: 0;
+// Generar libreria responsive
+@mixin responsive($classes...) {
+  $paring: false;
+  @each $class in $classes {
+    @if $class == '&' or $class == & {
+      $paring: true;
+    } @else {
+      @if $paring {
+        &.#{$class} {
+          @content;
+        }
+      } @else {
+        .#{$class} {
+          @content;
+        }
+      }
+      @include eacher($paring, $class) {
+        @content;
+      }
+    }
   }
 }
-.margin-t,
-.margin-y,
-.margin {
-  margin-top: $margin;
-  &-2 {
-    margin-top: $margin * 2;
+
+@mixin from-bp($breakpoint) {
+  $bp: $breakpoint;
+  @if map-has-key($breakpoints, $breakpoint) {
+    $bp: map-get($breakpoints, $breakpoint);
   }
-  &-05 {
-    margin-top: $margin / 2;
-  }
-  &-0 {
-    margin-top: 0;
+  @if type-of($bp) == number {
+    @media (min-width: $bp) {
+      @content;
+    }
   }
 }
-.margin-b,
-.margin-y,
-.margin {
-  margin-bottom: $margin;
-  &-2 {
-    margin-bottom: $margin * 2;
+@mixin to-bp($breakpoint) {
+  $bp: $breakpoint;
+  @if map-has-key($breakpoints, $breakpoint) {
+    $bp: map-get($breakpoints, $breakpoint);
   }
-  &-05 {
-    margin-bottom: $margin / 2;
-  }
-  &-0 {
-    margin-bottom: 0;
+  @if type-of($bp) == number {
+    @media (max-width: $bp) {
+      @content;
+    }
   }
 }
-.align-center {
-  text-align: center;
-}
-.align-left {
-  text-align: left;
-}
-.align-right {
-  text-align: right;
+
+// Alineaciones
+@mixin helpers {
+  @each $pos in $aligns {
+    @include responsive(align-#{$pos}) {
+      text-align: $pos;
+    }
+  }
+  // Alineaciones box
+  @each $clss, $val in $positions {
+    @include responsive(to-#{$clss}) {
+      justify-content: $val;
+    }
+  }
+  // Alineaciones vericales box
+  @each $clss, $val in $verticals {
+    @include responsive(to-#{$clss}) {
+      align-items: $val;
+    }
+  }
+  // Paddings
+  @include box-rules(padding, $padding);
+  @include box-rules(margin, $margin);
+  @include box-rules(border, $border);
 }

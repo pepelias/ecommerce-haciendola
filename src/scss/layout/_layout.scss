@@ -34,7 +34,7 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
       animation: fadeIn 0.5s;
     }
   }
-  @media (min-width: $bp-lg) {
+  @include from-bp(lg) {
     .mobile-menu {
       display: none;
     }
@@ -113,7 +113,7 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
   .active & {
     right: 0;
   }
-  @media (min-width: $bp-lg) {
+  @include from-bp(lg) {
     overflow: unset;
     &__submenu {
       position: absolute;
@@ -135,13 +135,24 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
 .main-logo {
   height: calc(var(--fs-content) * 1.5);
 }
-.container {
+.container,
+.grid-container,
+.grid-mobile-container {
   display: block;
   padding: $padding;
   max-width: $max-width;
   margin: auto;
 }
-.dual-container {
+
+@include responsive(grid-container, grid-mobile-container) {
+  display: grid;
+  gap: $margin;
+  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  max-width: $max-width;
+  margin: auto;
+}
+
+.grid-mobile-container {
   position: relative;
   padding: $padding;
   height: 100%;
@@ -164,11 +175,10 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
       left: 100vw;
     }
   }
-
-  @media (min-width: $bp-m) {
+  @include from-bp(m) {
     display: grid;
-    grid-template-columns: 40% 1fr;
     gap: $margin;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
     &__section:last-of-type {
       position: static;
       &:empty::before {
@@ -184,6 +194,7 @@ $header-height: calc(var(--fs-content) * 1.5 + #{$padding * 3});
     }
   }
 }
+
 .main-footer {
   display: flex;
   flex-direction: column;

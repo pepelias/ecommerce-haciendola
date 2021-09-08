@@ -31,7 +31,7 @@
     display: grid;
     gap: $padding;
   }
-  @media (min-width: $bp-m) {
+  @include from-bp(m) {
     grid-template-rows: none;
     grid-template-columns: 1fr 1fr;
     gap: $margin;
