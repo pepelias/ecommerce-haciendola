@@ -1,29 +1,3 @@
-.main-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: $padding;
-  padding: $margin;
-  background: var(--footer-color);
-  color: var(--contrast-color);
-  position: relative;
-  z-index: -1;
-  a {
-    color: inherit;
-    font-size: var(--fs-metadata);
-  }
-  &__social-links {
-    display: flex;
-    gap: $margin;
-    margin: auto;
-  }
-  &__icon {
-    display: block;
-    .im {
-      font-size: var(--fs-title);
-    }
-  }
-}
 .main-banner {
   position: relative;
   display: flex;
