@@ -1,16 +1,16 @@
-# Desafío tecnico para Haciendola
+# Desafío técnico para Haciéndola
 
-Esta es una aplicación React desarrollada para el desafío técnico de Haciendola.
+Esta es una aplicación React desarrollada para el desafío técnico de Haciéndola.
 
 ## Tecnologías utilizadas:
 1. React, react-router
 2. Redux
 3. Sass (Sin librerías).
-4. react-elastic-carousel: solo se usó para el carrusel; **El Slideshow fue escrito sin librerias.**
+4. react-elastic-carousel: solo se usó para el carrusel; **El Slideshow fue escrito sin librerías.**
 
 ## Instrucciones para ejecutar el proyecto:
 
-> **Nota:** para correr este se requiere `Node.js` e instalar las dependencias. **Incluí el archivo `.env.local` en el repositorio con el fin de evitarles la configuración (soy conciente de que en proyectos reales esto se ignora).**
+> **Nota:** para correr este se requiere `Node.js` e instalar las dependencias. **Incluí el archivo `.env.local` en el repositorio con el fin de evitarles la configuración (soy consciente de que en proyectos reales esto se ignora).**
 
 ### Instrucciones de ejecución
 
