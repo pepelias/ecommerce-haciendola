@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Currency } from '../../helpers/formats'
 import useInCart from '../../hooks/useInCart'
 import useQuantity from '../../hooks/useQty'
-import useRegisters from '../../hooks/useRequest'
+import useRequest from '../../hooks/useRequest'
 import { addToCart } from '../../redux/actionCreators'
 import ErrorMessage from '../Molecules/ErrorMessage'
 import Icon from '../Molecules/Icon'
@@ -13,7 +13,7 @@ import Quantity from '../Molecules/Quantity'
 
 const ProductPage = ({ match }) => {
   // Data
-  const [product, error] = useRegisters({
+  const [product, error, loading] = useRequest({
     endpoint: `/products/${match.params.product}`,
     defaultValue: null,
   })
@@ -44,8 +44,8 @@ const ProductPage = ({ match }) => {
   }
 
   // Rendering
+  if (loading) return <Loader>Cargando información del producto</Loader>
   if (error) return <ErrorMessage>{error}</ErrorMessage>
-  if (!product) return <Loader>Cargando información del producto</Loader>
 
   return (
     <article className="pdetail">

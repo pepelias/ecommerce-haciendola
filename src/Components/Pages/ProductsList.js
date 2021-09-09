@@ -5,7 +5,7 @@ import Banner from '../Organisms/Banner'
 import Product from '../Organisms/Product'
 
 const ProductsList = ({ bannerTitle, bannerImg, title, endpoint }) => {
-  const [products, error] = useRequest({ endpoint })
+  const [products, error, loader] = useRequest({ endpoint })
   return (
     <>
       <Banner title={bannerTitle} img={bannerImg} />
@@ -14,14 +14,14 @@ const ProductsList = ({ bannerTitle, bannerImg, title, endpoint }) => {
       ) : (
         <section className="container page-section">
           <h1>{title}</h1>
-          {products.length > 0 ? (
+          {loader ? (
+            <Loader>Cargando productos</Loader>
+          ) : (
             <div className="products-grid">
               {products.map((product, i) => (
                 <Product key={i} {...product} />
               ))}
             </div>
-          ) : (
-            <Loader>Cargando productos</Loader>
           )}
         </section>
       )}

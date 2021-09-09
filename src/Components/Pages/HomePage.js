@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 import Image from '../Molecules/Image'
 import BestSellers from '../Organisms/BestSellers'
+import ContactForm from '../Organisms/ContactForm'
 import Slideshow from '../Organisms/Slideshow'
 
 const HomePage = () => {
@@ -12,7 +13,7 @@ const HomePage = () => {
         <h1 className="align-center margin-0">Lo más vendido:</h1>
         <BestSellers />
       </section>
-      <section>
+      <section className="margin-y">
         <h1 className="align-center s-margin-b-05 m-margin-b">Conócenos:</h1>
         <div className="lg-grid-container s-padding-0 m-padding m-to-middle">
           <Image
@@ -33,6 +34,12 @@ const HomePage = () => {
               consequat ultricies.
             </p>
           </section>
+        </div>
+      </section>
+      <section className="container margin-y-3">
+        <h1 className="align-center">Contáctenos:</h1>
+        <div className="lg-fr-w-50 margin-x-auto">
+          <ContactForm />
         </div>
       </section>
     </>

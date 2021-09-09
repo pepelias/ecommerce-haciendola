@@ -6,7 +6,7 @@ import Carousel from 'react-elastic-carousel'
 import { useRef, useState } from 'react'
 
 const BestSellers = () => {
-  const [products, error] = useRequest({
+  const [products, error, loading] = useRequest({
     endpoint: '/products/getBestSellers',
   })
   const carousel = useRef()
@@ -32,8 +32,8 @@ const BestSellers = () => {
     if (pages > 1 && !controls) setControls(true)
   }
 
+  if (loading) return <Loader>Cargando productos</Loader>
   if (error) return <ErrorMessage>{error}</ErrorMessage>
-  if (products.length === 0) return <Loader>Cargando productos</Loader>
   return (
     <Carousel
       breakPoints={breakPoints}

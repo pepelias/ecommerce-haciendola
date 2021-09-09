@@ -6,7 +6,7 @@ import HistoryDetail from '../Organisms/HistoryDetail'
 import Loader from '../Molecules/Loader'
 
 const HistoryPage = ({ match }) => {
-  const [history, error] = useRequest({ endpoint: '/users/getOrders' })
+  const [history, error, loading] = useRequest({ endpoint: '/users/getOrders' })
   const [selected, setSelected] = useState()
 
   // Detectar seleccion
@@ -17,8 +17,7 @@ const HistoryPage = ({ match }) => {
     )
   }, [match, history])
 
-  if (!history.length && !error)
-    return <Loader>Cargando su historial de pedidos</Loader>
+  if (loading) return <Loader>Cargando su historial de pedidos</Loader>
   return (
     <div className="grid-mobile-container">
       <section className="grid-mobile-container__section">
