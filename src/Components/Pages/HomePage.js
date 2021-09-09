@@ -36,9 +36,9 @@ const HomePage = () => {
           </section>
         </div>
       </section>
-      <section className="container margin-y-3">
+      <section className="container s-margin-b-3 m-margin-b-3 lg-margin-t-3">
         <h1 className="align-center">Contáctenos:</h1>
-        <div className="lg-fr-w-50 margin-x-auto">
+        <div className="m-fr-w-50 margin-x-auto">
           <ContactForm />
         </div>
       </section>
