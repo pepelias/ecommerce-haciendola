@@ -22,6 +22,10 @@ npm install
 
 # Ó con yarn
 yarn
+
+
+# Ejecutamos la app
+yarn start
 ```
 
 ### Comandos disponibles:
