@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Desafío tecnico para Haciendola
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta es una aplicación React desarrollada para el desafío técnico de Haciendola.
 
-## Available Scripts
+## Tecnologías utilizadas:
+1. React, react-router
+2. Redux
+3. Sass (Sin librerías).
+4. react-elastic-carousel: solo se usó para el carrusel; **El Slideshow fue escrito sin librerias.**
 
-In the project directory, you can run:
+----
+# Instrucciones para ejecutar el proyecto:
+
+> **Nota:** Correr este proyecto en modo dev requiere NodeJS e instalar las dependencias. **Incluí una rama `build` que contiene la aplicación ya construida y se puede ejecutar desde cualquier servidor.**
+
+## 1. Modo Dev
+
+Estando dentro del directorio, ejecutar:
+
+```bash
+# Con npm
+npm install
+
+# Ó con yarn
+yarn
+```
+
+### Comandos disponibles:
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ejecutará la aplicación en modo desarrollo (no optimizada para producción). Para verla en el navegador abra [http://localhost:3000](http://localhost:3000)
 
 ### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Construye la app optimizada y minificada, lista para producción. *(La rama `build` contiene una versión ya contruida).*
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 2. Desde rama `build` (versión minificada):
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> *Se incluyó esta rama por si se quiere correr la aplicación sin necesidad de Nodejs o de instalar dependecias.*
 
-### `yarn eject`
+Esta versión ya está optimiza y minificada para producción por lo que debería funcionar desde cualquier servidor, **Respetando que el directorio `build` DEBE SER LA RAÍZ**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Para este ejemplo usaremos la extensión `Live Server` de `Visual Studio Code`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Abrimos el directorio `build` en `vscode`.
+2. Click derecho sobre `index.html`
+   - Seleccionamos `Open with Live Server`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Esto ejecutará el sitio en un servidor local y se abrirá en su navegador**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
