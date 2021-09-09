@@ -1,20 +1,20 @@
 import * as actions from './actions'
 
-export const addToCart = (product) => (dispatch) => {
-  console.log('Añadir al carrito')
-  dispatch({ type: actions.ADD_TO_CART, data: product })
-}
-export const removeFromCart = (productHandle) => (dispatch) => {
-  dispatch({ type: actions.REMOVE_FROM_CART, data: productHandle })
-}
+export const addToCart = (product) => ({
+  type: actions.ADD_TO_CART,
+  data: product,
+})
 
-export const setCollections = (collections) => (dispatch) => {
-  dispatch({ type: actions.SET_COLLECTIONS, data: collections })
-}
+export const removeFromCart = (productHandle) => ({
+  type: actions.REMOVE_FROM_CART,
+  data: productHandle,
+})
 
-export const signIn = (jwt) => (dispatch) => {
-  dispatch({ type: actions.LOGIN, data: jwt })
-}
-export const signOut = () => (dispatch) => {
-  dispatch({ type: actions.LOGOUT })
-}
+export const setCollections = (collections) => ({
+  type: actions.SET_COLLECTIONS,
+  data: collections,
+})
+
+export const signIn = (jwt) => ({ type: actions.LOGIN, data: jwt })
+
+export const signOut = () => ({ type: actions.LOGOUT })
