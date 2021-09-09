@@ -20,11 +20,20 @@ const LoginPage = () => {
         {error && <ErrorMessage>{error}</ErrorMessage>}
         <label>
           Nombre de usuario:
-          <input type="text" {...user} autoFocus />
+          <input
+            type="text"
+            defaultValue={user.value}
+            onChange={user.onChange}
+            autoFocus
+          />
         </label>
         <label>
           Contraseña:
-          <input type="password" {...password} />
+          <input
+            type="password"
+            defaultValue={password.value}
+            onChange={password.onChange}
+          />
         </label>
         <div className="buttons-container">
           <button>

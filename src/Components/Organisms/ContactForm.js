@@ -26,6 +26,9 @@ const ContactForm = () => {
     if (message.value === '')
       return Failed('Escriba su mensaje', e.target.message)
     Success('Su mensaje fue enviado con éxito')
+    name.clear()
+    email.clear()
+    message.clear()
     e.target.reset()
   }
   return (
@@ -37,7 +40,12 @@ const ContactForm = () => {
       )}
       <label>
         Nombre:
-        <input placeholder="John Doe" id="name" onChange={name.onChange} />
+        <input
+          placeholder="John Doe"
+          id="name"
+          defaultValue={name.value}
+          onChange={name.onChange}
+        />
       </label>
       <label>
         Email:
@@ -45,6 +53,7 @@ const ContactForm = () => {
           type="email"
           id="email"
           placeholder="usuario@ejemplo.com"
+          defaultValue={email.value}
           onChange={email.onChange}
         />
       </label>
@@ -53,6 +62,7 @@ const ContactForm = () => {
         <textarea
           id="message"
           placeholder="Escriba aquí su mensaje"
+          defaultValue={message.value}
           onChange={message.onChange}
         />
       </label>
